@@ -255,3 +255,87 @@ ent.grid(row=0,column=2)
 
 
 okno.mainloop()
+import tkinter as tk
+import tkinter.font as tkFont
+
+
+
+
+
+def poStisku():
+    a = int(lbl_a.get())
+    b = int(lbl_b.get())
+    c = int(lbl_c.get())
+
+    v = a * b * c
+    p = 2*a*b + 2*a*c + 2*b*c
+
+    vysl_objem.set(v)
+    vysl_povrch.set(p)
+
+
+
+
+
+
+
+def idk():
+    velkyfont = tkFont.Font(family="Comic Sans MS", size=30)
+
+    lbl1 = tk.Label(okno, text="Strana A:", font=velkyfont)
+    lbl1.grid(row=1, column=1)
+
+    lbl2 = tk.Label(okno, text="Strana B:", font=velkyfont)
+    lbl2.grid(row=2, column=1)
+
+    lbl3 = tk.Label(okno, text="Strana C:", font=velkyfont)
+    lbl3.grid(row=3, column=1)
+
+
+    box1 = tk.Entry(okno, font=velkyfont, textvariable=lbl_a)
+    box1.grid(row=1, column=2)
+
+    box2 = tk.Entry(okno, font=velkyfont, textvariable=lbl_b)
+    box2.grid(row=2, column=2)
+
+    box3 = tk.Entry(okno, font=velkyfont, textvariable=lbl_c)
+    box3.grid(row=3, column=2)
+
+
+    btn = tk.Button(okno, text="VÝPOČET", font=velkyfont, command=poStisku)
+    btn.grid(row=4, column=2)
+
+    lbl4 = tk.Label(okno, text="Objem:", font=velkyfont)
+    lbl4.grid(row=5, column=1)
+
+    lbl5 = tk.Label(okno, text="Povrch:", font=velkyfont)
+    lbl5.grid(row=6, column=1)
+
+
+    lbl6 = tk.Label(okno, font=velkyfont, textvariable=vysl_objem)
+    lbl6.grid(row=5, column=2)
+
+    lbl7 = tk.Label(okno, font=velkyfont, textvariable=vysl_povrch)
+    lbl7.grid(row=6, column=2)
+
+
+
+
+
+okno = tk.Tk()
+okno.title("Kvadr")
+okno.geometry("1000x1000")
+
+
+
+lbl_a = tk.StringVar(value="")
+lbl_b = tk.StringVar(value="")
+lbl_c = tk.StringVar(value="")
+
+vysl_objem = tk.StringVar(value="")
+vysl_povrch = tk.StringVar(value="")
+
+
+
+idk()
+okno.mainloop()
