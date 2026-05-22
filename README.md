@@ -339,3 +339,76 @@ vysl_povrch = tk.StringVar(value="")
 
 idk()
 okno.mainloop()
+
+
+
+
+
+
+import tkinter as tk
+import tkinter.font as tkFont
+import random
+
+
+okno=tk.Tk()
+
+okno.title("bradar")
+
+okno.geometry("1000x1000")
+
+
+
+
+nahd = random.randint(1,100)
+
+
+lbl_a=tk.StringVar(value="xxx")
+lbl_b=tk.StringVar(value="")
+pocet=tk.StringVar(value="")
+vysl_obsah=tk.StringVar(value="")
+cislo=tk.StringVar(value="")
+pct=0
+def poStisku():
+    global pct
+    a=int(cislo.get())
+
+    if nahd>a:
+        text = "zadej vetsi"
+    elif a > nahd:
+        text = "zadej mensi"
+    else:
+        text="uhodnuto"
+    pct=pct+1
+    lbl_a.set(text)
+    pocet.set(pct)
+
+
+
+
+velkyfont= tkFont.Font(family="Comic Sans MS", size=30)
+
+lbl1 = tk.Label(okno, text="strana A:", font=velkyfont, textvariable=lbl_a)
+lbl1.grid(row=3, column=1)
+
+lbl1 = tk.Label(okno, text="zadej číslo:", font=velkyfont)
+lbl1.grid(row=1, column=1)
+
+
+box1 = tk.Entry(okno, font=velkyfont, textvariable=cislo)
+box1.grid(row=1, column=2)
+
+
+
+btn = tk.Button(okno, text="VÝPOČET", font=velkyfont, command=poStisku)
+btn.grid(row=2, column=1)
+
+
+lbl5 = tk.Label(okno, text="číslo1", font=velkyfont, textvariable=pocet)
+lbl5.grid(row=4, column=2)
+
+lbl6 = tk.Label(okno, text="číslo2", font=velkyfont, textvariable=vysl_obsah)
+lbl6.grid(row=5, column=2)
+
+
+
+okno.mainloop()
